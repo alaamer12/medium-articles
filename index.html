@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Medium Articles Dataset - 500K+ Articles for NLP and Data Science</title>
+    <meta name="title" content="Medium Articles Dataset - 500K+ Articles for NLP and Data Science">
+    <meta name="description" content="Access 500K+ unique Medium articles with rich metadata. Perfect for NLP, content analysis, and research. Clean, normalized data ready for machine learning.">
+    <meta name="keywords" content="medium dataset, nlp dataset, article dataset, text classification, machine learning dataset, content analysis, medium articles">
+    <meta name="author" content="Alaamer">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://huggingface.co/datasets/Alaamer/medium-articles-posts-with-content">
+    <meta property="og:title" content="Medium Articles Dataset - 500K+ Articles for NLP and Data Science">
+    <meta property="og:description" content="Access 500K+ unique Medium articles with rich metadata. Perfect for NLP, content analysis, and research. Clean, normalized data ready for machine learning.">
+    <meta property="og:image" content="assets/images/logo.svg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://huggingface.co/datasets/Alaamer/medium-articles-posts-with-content">
+    <meta property="twitter:title" content="Medium Articles Dataset - 500K+ Articles for NLP and Data Science">
+    <meta property="twitter:description" content="Access 500K+ unique Medium articles with rich metadata. Perfect for NLP, content analysis, and research. Clean, normalized data ready for machine learning.">
+    <meta property="twitter:image" content="assets/images/logo.svg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/images/logo.svg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://huggingface.co/datasets/Alaamer/medium-articles-posts-with-content">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "Medium Articles Dataset",
+        "description": "A comprehensive collection of 500K+ Medium articles with rich metadata, perfect for NLP tasks and content analysis.",
+        "url": "https://huggingface.co/datasets/Alaamer/medium-articles-posts-with-content",
+        "keywords": ["medium", "articles", "nlp", "dataset", "machine learning", "content analysis"],
+        "creator": {
+            "@type": "Person",
+            "name": "Alaamer"
+        },
+        "distribution": {
+            "@type": "DataDownload",
+            "contentUrl": "https://huggingface.co/datasets/Alaamer/medium-articles-posts-with-content"
+        },
+        "license": "https://opensource.org/licenses/MIT"
+    }
+    </script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --secondary: #14b8a6;
+            --text: #334155;
+            --text-light: #64748b;
+            --background: #ffffff;
+            --background-alt: #f8fafc;
+            --border-radius: 12px;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--background);
+            box-shadow: var(--shadow);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--background-alt) 0%, var(--background) 100%);
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .stat-card {
+            background: var(--background);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .feature-card {
+            background: var(--background);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button.primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .button.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(8px);
+        }
+
+        footer {
+            background: var(--background-alt);
+            color: var(--text);
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .platform-logos {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .platform-logo {
+            height: 24px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .platform-logo:hover {
+            opacity: 1;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            margin-left: 2rem;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .stats, .features {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                margin-left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <img src="assets/images/logo.svg" alt="MediumDS Logo" width="32" height="32">
+                MediumDS
+            </a>
+            <nav>
+                <a href="#features">Features</a>
+                <a href="#stats">Stats</a>
+                <a href="#get-started">Get Started</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Medium Articles Dataset</h1>
+            <p>A comprehensive collection of 500K+ Medium articles, combining the best of data science and natural language processing resources.</p>
+        </section>
+
+        <section id="stats" class="stats">
+            <div class="stat-card">
+                <div class="stat-number">500K+</div>
+                <p>Articles</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10+</div>
+                <p>Data Fields</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <p>Unique Entries</p>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="feature-card">
+                <h3>🔍 Rich Metadata</h3>
+                <p>Each article comes with comprehensive metadata including title, subtitle, author, publication, claps, and more.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📊 Clean & Normalized</h3>
+                <p>Data is thoroughly cleaned, normalized, and deduplicated for immediate use in your projects.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🚀 Easy Integration</h3>
+                <p>Compatible with popular ML frameworks and available through Hugging Face's datasets library.</p>
+            </div>
+        </section>
+
+        <section id="get-started" class="cta-section">
+            <h2>Ready to Get Started?</h2>
+            <p>Access the dataset through your preferred platform</p>
+            <div style="margin-top: 2rem;">
+                <a href="https://huggingface.co/datasets/Alaamer/medium-articles-posts-with-content" class="button primary">View on Hugging Face</a>
+                <a href="https://github.com/Alaamer/medium-articles-dataset" class="button secondary">GitHub Repository</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Documentation</h3>
+                    <div class="footer-links">
+                        <a href="docs/LICENSE">License</a>
+                        <a href="docs/CONTRIBUTING.md">Contributing</a>
+                        <a href="docs/CITATION.cff">Citation</a>
+                        <a href="docs/CHANGELOG.md">Changelog</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <div class="footer-links">
+                        <a href="#features">Features</a>
+                        <a href="#stats">Statistics</a>
+                        <a href="docs/README.md">Documentation</a>
+                        <a href="https://github.com/Alaamer/medium-articles-dataset">GitHub</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="footer-links">
+                        <a href="https://github.com/Alaamer/medium-articles-dataset/issues">Report Issues</a>
+                        <a href="docs/CONTRIBUTING.md">Contribute</a>
+                        <a href="https://huggingface.co/Alaamer">Hugging Face</a>
+                    </div>
+                </div>
+            </div>
+            <div class="platform-logos">
+                <p>Powered by:</p>
+                <img src="https://cdn-static-1.medium.com/_/fp/icons/Medium-Avatar-500x500.svg" alt="Medium Platform" class="platform-logo" width="24" height="24">
+                <img src="https://www.kaggle.com/static/images/site-logo.svg" alt="Kaggle Platform" class="platform-logo" width="24" height="24">
+                <img src="https://huggingface.co/front/assets/huggingface_logo.svg" alt="Hugging Face Platform" class="platform-logo" width="24" height="24">
+            </div>
+            <div style="text-align: center; margin-top: 2rem; color: var(--text-light);">
+                <p> 2025 Medium Articles Dataset. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
